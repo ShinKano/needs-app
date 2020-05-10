@@ -1,14 +1,18 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import Sub from './Sub';
+import Layout from './container/Layout'
 
 
 class App extends React.Component {
   render() {
     return (
         <div>
-          <h1>Hello React!</h1>
-          <Sub name="My Counter for TypeScript"/>
+          <Layout>
+            <h1>Meet Your Needs!</h1>
+            <Sub name="My Counter for TypeScript"/>
+
+          </Layout>
         </div>
     );
   }
