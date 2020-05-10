@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import styled from 'styled-components';
 
 // Propsの型定義
 interface IProps {
@@ -8,49 +8,47 @@ interface IProps {
 
 const Layout: React.FC<IProps> = props => {
 
-  const { navbar, logo, container, footer } = styles;
-
   return (
     <>
-      <div style={navbar}>
-        <div style={logo}>
-          Neeeds
-        </div>
-      </div>
-      <div style={container}>
+      <Navbar>
+        <Logo>
+          NeeedS
+        </Logo>
+      </Navbar>
+      <Container>
         {props.children}
-      </div>
-      <div style={footer}>
+      </Container>
+      <Footer>
         フッター
-      </div>
+      </Footer>
     </>
   );
 }
 
 export default Layout;
 
-const styles = {
-  navbar: {
-    height: 30,
-    backgroundColor: '#AFF',
-    width: '100%',
-    display: 'flex',
-    alignItems: 'center',
-  },
-  logo: {
-    marginLeft: 16,
-    fontSize: 16,
-  },
-  container: {
-    padding: 16,
-    backgroundColor: '#FFF',
-  },
-  footer: {
-    height: 60,
-    backgroundColor: '#AFF',
-    width: '100%',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-  }
-}
+const Navbar = styled.div`
+  height: 30px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #DDD;
+`;
+
+const Logo = styled.div`
+  margin-left: 16px;
+  font-size: 16px;
+`;
+
+const Container = styled.div`
+    padding: 16px 0 0 0;
+`;
+
+const Footer = styled.div`
+  height: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #DDD;
+`;

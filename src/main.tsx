@@ -1,7 +1,11 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import Sub from './Sub';
-import Layout from './container/Layout'
+import SiteTitle from './component/siteTitle';
+
+import Layout from './container/Layout';
+import HScrollContainer from './container/HScrollContainer';
+import Card from './component/Card';
+import { needs } from './datas/needs';
 
 
 class App extends React.Component {
@@ -9,9 +13,16 @@ class App extends React.Component {
     return (
         <div>
           <Layout>
-            <h1>Meet Your Needs!</h1>
-            <Sub name="My Counter for TypeScript"/>
+            <SiteTitle title='NeeedS' />
 
+            <HScrollContainer>
+              {needs.map(need => (
+                <Card
+                  key={need.en}
+                  title={need.en}
+                />
+              ))}
+            </HScrollContainer>
           </Layout>
         </div>
     );
